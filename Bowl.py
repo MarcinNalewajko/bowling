@@ -6,10 +6,7 @@ test4='1- 2/ 1- 1/ x 23 x 23 1/ x x x'
 
 
 
-def bowl_counter(test):
-    multi=0
-    throw_list=test.split()
-    score=[]
+def frames1_9(throw_list, score):
     for i in range(0,9):
         if throw_list[i]=='x':
             score.append(10)
@@ -66,8 +63,12 @@ def bowl_counter(test):
                     pass
 
                 else:
-                    pass    
-    
+                    pass   
+    return score
+
+
+
+def frame10(throw_list, score):
     if throw_list[9][0]=='x':
         score.append(10)
         if throw_list[8]=='x':
@@ -133,7 +134,15 @@ def bowl_counter(test):
     return score
 
 
-#bowl_counter(test1)
+def bowl_counter(test):
+    throw_list=test.split()
+    score=[]
+    frames1_9(throw_list, score)
+    frame10(throw_list, score)
+    return score
+    
+
+
 print (bowl_counter(test1))
 print (sum(bowl_counter(test1)))
 
